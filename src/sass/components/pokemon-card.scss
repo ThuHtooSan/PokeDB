@@ -89,9 +89,17 @@
   }
 
   .pokemon-name {
+    @include flex-col-center;
     text-align: center;
     font-size: 1.5rem;
-    text-transform: uppercase
+    text-transform: uppercase;
+    height: 40px;
+
+    @media (max-width: 400px) {
+      font-size: 1.4rem;
+      height: 30px;
+      line-height: 1.3rem;
+    }
   }
 
   .types {
