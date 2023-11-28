@@ -1,0 +1,145 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../maps' as *;
+@use '../functions' as *;
+
+.species-details {
+  @include flex-row(50px);
+  align-items: initial;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 30px;
+    max-width: 450px;
+  }
+
+  & > .first-section,
+  & > .second-section {
+    flex: 1;
+  }
+
+  & > .first-section {
+    @include flex-col(30px);
+
+    & > * {
+      @include flex-col(20px);
+
+      .title {
+        @include flex-row(5px);
+        font-size: 1.4rem;
+        text-transform: uppercase;
+      }
+    }
+
+    .ability-container .abilities {
+      @include flex-row(20px);
+      flex-wrap: wrap;
+    }
+  
+    .species-basic-infos .infos {
+      @include flex-row(20px);
+      flex-wrap: wrap;
+  
+      & > * {
+        @include flex-row;
+        border-radius: $border-radius;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+        box-shadow: $box-shadow;
+  
+        & > span:nth-child(1) {
+          @include flex-row(10px);
+          background: $secondary;
+          padding: 5px 9px;
+          color: $black;
+        }
+  
+        & > span:nth-child(2) {
+          background: $primary;
+          padding: 5px 9px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  & > .second-section {
+    @include flex-col(30px);
+
+    & > * {
+      @include flex-col(20px);
+
+      .title {
+        @include flex-row(5px);
+        font-size: 1.4rem;
+        text-transform: uppercase;
+      }
+    }
+
+    .pal-park-encounters .encounters {
+      @include list($green, 5px solid $green);
+      box-shadow: $box-shadow;
+      text-transform: capitalize;
+      border-radius: $small-border-radius;
+      overflow: hidden;
+    }
+  
+    .pokedex-numbers .pokedex-container {
+      @include list(lighten($primary, 5%));
+      box-shadow: $box-shadow;
+      max-height: 200px;
+      border-radius: $small-border-radius;
+      overflow-y: scroll;
+  
+      li {
+        margin-left: 27px;
+        padding: 0;
+        background: $tertiary;
+        list-style-type: decimal;
+  
+        .pokedex {
+          & > * {
+            padding: 8px 8px;
+          }
+    
+          &-entry {
+            @include flex-row-center;
+            background: $secondary;
+            color: adaptive-text($secondary);
+            width: 40px;
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  
+    .egg-groups {
+      .icon {
+        width: 25px;
+      }
+  
+      ul {
+        @include flex-row;
+  
+        .group-name {
+          padding: 5px 10px;
+          list-style-type: none;
+          box-shadow: $box-shadow;
+          background: $white;
+          box-shadow: $box-shadow;
+  
+          &:not(:last-child) {
+            border-right: 1px solid rgba(0, 0, 0, .1);
+          }
+  
+          @each $key, $val in $egg-colors {
+            &.#{$key} {
+              border-bottom: 4px solid $val;
+            }
+          }
+        }
+      }
+    }
+  }
+}

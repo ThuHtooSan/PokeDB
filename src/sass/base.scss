@@ -1,0 +1,72 @@
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100;200;300;400;500;600;700;800;900&family=VT323&display=swap');
+
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('../fonts/Pokemon\ Solid.ttf');
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'VT323', monospace;
+}
+
+body {
+  height: 100dvh;
+
+  &.light {
+    color: $grey;
+    background: $bg;
+  }
+
+  &.dark {
+    color: $white;
+    background: darken($bg, 20%);
+  }
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+button {
+  background: $primary;
+  color: inherit;
+  border: none;
+  border-radius: $border-radius;
+  padding: 8px 12px;
+  font-size: 1rem;
+}
+
+/* Event Delegation Fix */
+button > * {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a {
+    color: inherit;
+  }
+
+  a, button {
+    transition: $transition-duration;
+    cursor: pointer;
+  }
+}
+
+::selection {
+  background-color: $primary;
+  color: $white;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: 'Handjet', sans-serif;
+    letter-spacing: 1px;
+  }
+}

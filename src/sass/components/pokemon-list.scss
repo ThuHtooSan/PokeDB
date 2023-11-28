@@ -1,0 +1,11 @@
+@use '../variables.scss' as *;
+@use '../mixins.scss' as *;
+
+.pokemon-list {
+  @include flex-row(30px);
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 20px;
+  max-width: 1200px;
+  margin-inline: auto;
+}

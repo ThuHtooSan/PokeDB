@@ -1,0 +1,30 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../animations' as *;
+
+.error-view-container {
+  @include modal-container();
+  z-index: 9999;
+
+  .error {
+    @include modal-center($tertiary, $black, auto, 30px);
+    backdrop-filter: none;
+    background: $tertiary;
+
+    .icon {
+      width: 80px;
+    }
+
+    .description {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      width: 200px;
+    }
+
+    .dismiss-error {
+      @include modal-remove-btn;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}

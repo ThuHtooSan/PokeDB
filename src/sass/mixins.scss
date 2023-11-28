@@ -1,0 +1,153 @@
+@use 'variables' as *;
+@use 'functions' as *;
+
+// flex alignments
+@mixin flex-row($gap: 0px) {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin flex-row-center($gap: 0px) {
+  @include flex-row($gap);
+  justify-content: center;
+}
+
+@mixin flex-col($gap: 0px) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin flex-col-center($gap: 0px) {
+  @include flex-col($gap);
+  justify-content: center;
+}
+
+@mixin flex-center($gap: 0px) {
+  @include flex-col-center($gap);
+  align-items: center;
+}
+
+@mixin fix-center() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// modal
+
+@mixin modal-container($bg: none) {
+  @include flex-row-center();
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $bg;
+  transition: $transition-duration;
+}
+
+@mixin modal($bg: #fff, $color: inherit, $width: auto, $gap: 25px) {
+  @include flex-col($gap);
+  width: $width;
+  min-width: 250px;
+  min-height: 200px;
+  padding: 40px 40px;
+  position: relative;
+  background: transparentize($bg, .4);
+  backdrop-filter: blur(8px);
+  transition: $transition-duration;
+  color: $color;
+  animation: fadeIn $animation-duration 1;
+
+  @if ($width != 100% and $width != 100vw) {
+    max-width: 90%;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  } @else {
+    height: 100%;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 30px;
+  }
+}
+
+@mixin modal-center($bg: #fff, $color: inherit, $width: auto, $gap: 25px) {
+  @include modal($bg, $color, $width, $gap);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin modal-remove-btn($side: right) {
+  position: absolute;
+  top: 20px;
+  #{$side}: 20px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+}
+
+// navbar
+@mixin navbar($bg: none, $color: inherit) {
+  @include flex-row();
+  justify-content: space-between;
+  padding: 20px;
+  background: $bg;
+  color: $color;
+  margin-bottom: 15px;
+  max-width: $max-width;
+  margin-inline: auto;
+}
+
+// nav links
+@mixin navlinks($gap, $color: inherit, $hover-color: null) {
+  @include flex-row($gap);
+  
+  a {
+    text-decoration: none;
+  }
+
+  & > li {
+    list-style-type: none;
+    margin-inline: none;
+  }
+
+  & > * {
+    color: $color;
+
+    @if ($hover-color) {
+      &:hover {
+        color: $hover-color;
+      }
+
+      &:active {
+        color: darken($hover-color, 20%);
+      }
+    }
+  }
+}
+
+@mixin list ($bg: $tertiary, $border-left: none) {
+  background: $bg;
+
+  & > li {
+    background: lighten($bg, 20%);
+    padding: 8px 10px;
+    border-left: $border-left;
+    color: adaptive-text($bg);
+    list-style-type: none;
+
+    & > * {
+      @include flex-row;
+      justify-content: space-between;
+    }
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $light-grey;
+  }
+}

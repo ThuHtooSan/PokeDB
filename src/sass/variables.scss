@@ -1,0 +1,47 @@
+$light-green: rgb(205, 250, 213);
+$yellow: rgb(246, 253, 195);
+$orange: rgb(255, 207, 150);
+$pink: rgb(248, 189, 235);
+$peach: rgb(255, 128, 128);
+
+$blue: rgb(82, 114, 242);
+$navy: rgb(7, 37, 65);
+$light-navy: rgb(36, 20, 104);
+$teal: rgb(31, 138, 112);
+$green: rgb(3, 201, 136);
+$red: rgb(216, 0, 50);
+$grey: rgb(53, 47, 68);
+$light-grey: lighten($grey, 50%);
+$dark-grey: darken($grey, 20%);
+$white: rgb(241, 246, 249);
+$dark-navy: rgb(33, 42, 62);
+$black: #000;
+
+$primary: $peach;
+$secondary: $orange;
+$tertiary: $yellow;
+$muted: $grey;
+$success: $green;
+$error: $red;
+$bg: $light-green;
+
+$logo-light-yellow: #FFCC00;
+$logo-dark-yellow: #D5A100;
+$logo-light-blue: #0075BE;
+$logo-dark-blue: #0A285F;
+
+$max-width: 1000px;
+
+$border-radius: 8px;
+$card-border-radius: 5px;
+$small-border-radius: 4px;
+$pill-border: 30px;
+
+$box-shadow: rgba(0, 0, 0, 0.09) 0 3px 12px;
+$drop-shadow: drop-shadow(rgba(0, 0, 0, 0.1) 0 3px 12px);
+
+$transition-duration: .3s;
+$animation-duration: .5s;
+
+$button-bg: $secondary;
+$button-color: $white;

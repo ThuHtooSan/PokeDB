@@ -1,0 +1,33 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.page-navigation {
+  @include flex-row-center(5px);
+  width: 100%;
+  margin-bottom: 20px;
+
+  & > * {
+    @include flex-row-center;
+    font-size: 1.2rem;
+    background: $secondary;
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+    text-decoration: none;
+    box-shadow: $box-shadow;
+
+    &.active {
+      background: $primary;
+    }
+  }
+
+  .first-pg {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    width: 30px;
+  }
+
+  .last-pg {
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    width: 30px;
+  }
+}

@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+$type-colors: (
+  'normal': $white,
+  'fighting': rgb(255, 108, 34),
+  'flying': rgb(69, 255, 202),
+  'poison': rgb(53, 21, 93),
+  'ground': rgb(176, 97, 97),
+  'rock': rgb(119, 107, 93),
+  'bug': rgb(122, 157, 84),
+  'ghost': rgb(173, 196, 206),
+  'steel': rgb(125, 124, 124),
+  'fire': $red,
+  'water': rgb(131, 162, 255),
+  'grass': rgb(3, 201, 136),
+  'electric': rgb(240, 222, 54),
+  'psychic': rgb(130, 148, 196),
+  'ice': rgb(152, 228, 255),
+  'dragon': rgb(135, 35, 65),
+  'dark': rgb(0, 0, 0),
+  'fairy': rgb(255, 116, 177),
+  'shadow': rgb(70, 65, 89),
+  'unknown': rgb(235, 228, 209)
+);
+
+$egg-colors: (
+  'monster': map-get($type-colors, 'fire'),
+  'water1': map-get($type-colors, 'water'),
+  'water2': darken(map-get($type-colors, 'water'), 5%),
+  'water3': darken(map-get($type-colors, 'water'), 10%),
+  'bug': map-get($type-colors, 'bug'),
+  'flying': map-get($type-colors, 'flying'),
+  'ground': map-get($type-colors, 'ground'),
+  'fairy': map-get($type-colors, 'fairy'),
+  'plant': map-get($type-colors, 'grass'),
+  'humanshape': map-get($type-colors, 'unknown'),
+  'mineral': map-get($type-colors, 'rock'),
+  'indeterminate': map-get($type-colors, 'unknown'),
+  'ditto': map-get($type-colors, 'ground'),
+  'dragon': map-get($type-colors, 'fire'),
+  'no-eggs': map-get($type-colors, 'ghost')
+)
+

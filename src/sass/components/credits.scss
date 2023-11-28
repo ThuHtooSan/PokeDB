@@ -1,0 +1,51 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../animations' as *;
+
+.credits-container {
+  @include flex-col-center(40px);
+  padding: 30px 100px;
+  animation: fadeIn $animation-duration;
+
+  @media (max-width: 550px) {
+    padding: 30px;
+  }
+
+  .title {
+    background: $tertiary;
+    width: fit-content;
+    padding: 7px 15px;
+    border-inline: 5px solid $primary;
+    margin-inline: auto;
+  }
+
+  .credits {
+    @include flex-col(30px);
+    background: $tertiary;
+    border-radius: 0 $border-radius $border-radius 0;
+    border-left: 5px solid $primary;
+    padding: 20px;
+
+    li {
+      @include flex-row(20px);
+      position: relative;
+
+      @media (max-width: 550px) {
+        flex-direction: column;
+      }
+
+      .icon {
+        width: 30px;
+      }
+
+      a {
+        font-size: 1.2rem;
+
+        @media (max-width: 550px) {
+          text-align: center;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}

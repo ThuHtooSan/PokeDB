@@ -1,0 +1,121 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../maps' as *;
+@use '../animations' as *;
+@use '../functions' as *;
+
+.evolution {
+  &-card {
+    @include flex-col(20px);
+    width: 100%;
+    max-width: 1000px;
+    margin-inline: auto;
+
+    & > .title {
+      text-align: center;
+      font-size: 1.5rem;
+      color: $primary;
+    }
+  }
+
+  &s {
+    @include flex-row-center(20px);
+
+    .card-container {
+      @include flex-center(20px);
+
+      @media (max-width: 800px) {
+        gap: 10px;
+      }
+
+      .min-level {
+        font-size: 1.4rem;
+        color: $black;
+
+        @media (max-width: 800px) {
+          font-size: 1rem;
+        }
+      }
+
+      .pokemon-card {
+        @media (max-width: 800px) {
+          width: 90px;
+          gap: 10px;
+
+          &::before {
+            top: -6px;
+            right: -15px;
+            border-bottom: 20px solid $primary;
+            border-inline: 20px solid transparent;
+          }
+
+          &:after {
+            bottom: -4px;
+            left: -10px;
+            border-bottom: 14px solid $primary;
+            border-inline: 14px solid transparent;
+          }
+
+          .hp {
+            font-size: .7rem;
+            top: 0;
+            right: 1px;
+          }
+
+          .img-container {
+            height: 50px
+          }
+
+          .pokemon-name {
+            font-size: 1rem;
+          }
+
+          .types > * {
+            font-size: .5rem;
+          }
+        }
+      }
+    }
+
+    .evolution-seperator {
+      @include flex-center;
+      min-width: 70px;
+
+      .trigger {
+        font-size: 1.4rem;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .icon {
+        @include flex-row-center;
+        font-size: 3rem;
+        color: $primary;
+        width: 100%;
+        
+        span {
+          animation: evolves 1.5s infinite;
+
+          @for $i from 1 through 3 {
+            &:nth-of-type(#{$i}) {
+              animation-delay: ($i - 1) * .5s;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 800px) {
+        min-width: auto;
+        max-width: 10px;
+
+        .trigger {
+          font-size: .8rem;
+        }
+
+        .icon {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

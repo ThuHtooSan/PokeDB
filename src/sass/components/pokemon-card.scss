@@ -1,0 +1,117 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../maps' as *;
+@use '../functions.scss' as *;
+@use '../animations.scss' as *;
+
+.pokemon-card {
+  @include flex-col(20px);
+  position: relative;
+  background: $secondary;
+  width: 200px;
+  padding: 20px;
+  box-shadow: $box-shadow;
+  border: 4px solid $primary;
+  border-radius: $card-border-radius;
+  overflow: hidden;
+  animation: fadeIn $animation-duration;
+
+  @media screen and (max-width: 400px) {
+    width: 160px;
+  }
+
+  &-link {
+    text-decoration: none;
+    width: max-content;
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    right: -27px;
+    border-top: none;
+    border-bottom: 40px solid $primary;
+    border-inline: 40px solid transparent;
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: -17px;
+    border-top: none;
+    border-bottom: 25px solid $primary;
+    border-inline: 25px solid transparent;
+    transform: rotate(-135deg);
+  }
+
+  .shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: shine 11s 3;
+    pointer-events: none;
+    touch-action: none;
+    z-index: 2;
+  }
+
+  .hp {
+    @include flex-row;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: $white;
+    font-size: 1.2rem;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 140px;
+
+    @media screen and (max-width: 400px) {
+      height: 100px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .pokemon-name {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase
+  }
+
+  .types {
+    @include flex-row-center(10px);
+
+    a {
+      text-decoration: none;
+    }
+
+    .type {
+      padding: 2px 5px;
+      font-size: 1rem;
+      text-transform: uppercase;
+
+      @each $name, $prop in $type-colors {
+        &.#{$name} {
+          background: $prop;
+          color: adaptive-text($prop);
+        }
+      }
+    }
+  }
+}

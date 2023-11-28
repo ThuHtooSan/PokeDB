@@ -1,0 +1,58 @@
+@use 'variables' as *;
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translate(-300px);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.7) 92%, rgba(255, 255, 255, 0.0) 100%);
+  }
+  90% {
+    transform: translate(300px);
+  }
+  100% {
+    transform: translate(500px);
+    opacity: 0;
+  }
+}
+
+@keyframes evolves {
+  0% {
+    color: $secondary;
+  }
+  100% {
+    color: $primary;
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-5px);
+  }
+}
