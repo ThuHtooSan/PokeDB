@@ -43,6 +43,10 @@ const Credits = () => {
           <Icon name='pond' className='icon' />
           <a href="https://www.flaticon.com/free-icons/pond" target='_blank' title="pond icons">Pond icons created by Mihimihi - Flaticon</a>
         </li>
+        <li>
+          <Icon name='ability' className='icon' />
+          <a href="https://www.flaticon.com/free-icons/skill" title="skill icons">Skill icons created by fjstudio - Flaticon</a>
+        </li>
       </ul>
     </div>
   )

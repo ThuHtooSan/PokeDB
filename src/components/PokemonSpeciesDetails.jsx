@@ -3,6 +3,8 @@ import { useAppContext, useFetch } from '../hooks';
 import Icon from './Icon';
 import { extractId } from '../functions';
 import { PokemonAbility } from './';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 const PokemonSpeciesDetails = ({ id }) => {
   const { state } = useAppContext();
@@ -29,7 +31,9 @@ const PokemonSpeciesDetails = ({ id }) => {
       <section className="first-section">
         { abilities && 
           <div className="ability-container">
-            <h3 className="title">Abilities</h3>
+            <h3 className="title">
+              <Icon name='ability' className='icon' /> Abilities
+            </h3>
             <div className="abilities">
               { pokemon?.abilities.map((ability, index) => {
                 const id = extractId(ability.ability.url);
@@ -43,7 +47,9 @@ const PokemonSpeciesDetails = ({ id }) => {
 
         { !species?.url &&
           <div className="species-basic-infos">
-            <h3 className="title">Species Info</h3>
+            <h3 className="title">
+            <FontAwesomeIcon icon={faCircleInfo} className='icon' /> Species Info
+            </h3>
             <div className="infos">
               { capture_rate &&
                 <div className="capture-rate">
@@ -78,7 +84,7 @@ const PokemonSpeciesDetails = ({ id }) => {
       <section className='second-section'>
         { !!pal_park_encounters.length && 
           <div className="pal-park-encounters">
-            <h4 className='title'><Icon name='park' /> Pal Park Encounters</h4>
+            <h4 className='title'><Icon name='park' className='icon' /> Pal Park Encounters</h4>
             <ul className='encounters'>
               { pal_park_encounters.map(encounter => (
                 <li key={encounter.area.name}>
@@ -94,7 +100,9 @@ const PokemonSpeciesDetails = ({ id }) => {
 
         { !!pokedex_numbers.length &&
           <div className="pokedex-numbers">
-            <h4 className='title'><Icon name='pokeball' /> Pokedex Numbers</h4>
+            <h4 className='title'>
+              <Icon name='pokeball' className='icon' /> Pokedex Numbers
+            </h4>
             <ol className='pokedex-container'>
               { pokedex_numbers.map(number => (
                 <li key={number.pokedex.name}>
@@ -114,7 +122,9 @@ const PokemonSpeciesDetails = ({ id }) => {
 
         { !!egg_groups.length &&
           <div className="egg-groups">
-            <h4 className='title'><Icon name='eggs'/>Egg Groups</h4>
+            <h4 className='title'>
+              <Icon name='eggs' className='icon'/>Egg Groups
+            </h4>
             <ul>
               { egg_groups.map(group => 
                 <li className={`group-name ${group.name}`} key={group.name}>

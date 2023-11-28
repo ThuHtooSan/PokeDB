@@ -8,6 +8,7 @@ import pokeball from '../assets/icons/pokeball.png';
 import park from '../assets/icons/park.png'
 import spinner from '../assets/icons/pokeball-spinner.png';
 import error from '../assets/icons/error.png';
+import ability from '../assets/icons/ability.png';
 
 const icons = {
   butterflyNet,
@@ -18,7 +19,8 @@ const icons = {
   pokeball,
   park,
   spinner,
-  error
+  error,
+  ability
 }
 
 const Icon = ({ name }) => {

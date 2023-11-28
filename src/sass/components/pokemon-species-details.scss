@@ -25,9 +25,13 @@
       @include flex-col(20px);
 
       .title {
-        @include flex-row(5px);
+        @include flex-row(10px);
         font-size: 1.4rem;
         text-transform: uppercase;
+
+        .icon {
+          width: 18px;
+        }
       }
     }
 
@@ -36,29 +40,36 @@
       flex-wrap: wrap;
     }
   
-    .species-basic-infos .infos {
-      @include flex-row(20px);
-      flex-wrap: wrap;
-  
-      & > * {
-        @include flex-row;
-        border-radius: $border-radius;
-        overflow: hidden;
-        text-transform: uppercase;
-        letter-spacing: .6px;
-        box-shadow: $box-shadow;
-  
-        & > span:nth-child(1) {
-          @include flex-row(10px);
-          background: $secondary;
-          padding: 5px 9px;
-          color: $black;
-        }
-  
-        & > span:nth-child(2) {
-          background: $primary;
-          padding: 5px 9px;
-          color: white;
+    .species-basic-infos {
+      .title .icon {
+        font-size: 1.3rem;
+        color: $grey;
+      }
+
+      .infos {
+        @include flex-row(20px);
+        flex-wrap: wrap;
+    
+        & > * {
+          @include flex-row;
+          border-radius: $border-radius;
+          overflow: hidden;
+          text-transform: uppercase;
+          letter-spacing: .6px;
+          box-shadow: $box-shadow;
+    
+          & > span:nth-child(1) {
+            @include flex-row(10px);
+            background: $secondary;
+            padding: 5px 9px;
+            color: $black;
+          }
+    
+          & > span:nth-child(2) {
+            background: $primary;
+            padding: 5px 9px;
+            color: white;
+          }
         }
       }
     }
@@ -71,9 +82,13 @@
       @include flex-col(20px);
 
       .title {
-        @include flex-row(5px);
+        @include flex-row(10px);
         font-size: 1.4rem;
         text-transform: uppercase;
+
+        .icon {
+          width: 18px;
+        }
       }
     }
 
